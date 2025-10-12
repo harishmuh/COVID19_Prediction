@@ -204,7 +204,7 @@ Based on Feature Importance, Permutation Importance (global explanation), and LI
 
 
 ### **Asset**
-* [Notebook (ipynb)]() 
+* [Notebook (ipynb)](https://github.com/harishmuh/COVID19_Prediction/blob/main/notebook/COVID19_symptoms_prediction_%20ver%201_2.ipynb) 
 
 
 
