@@ -157,7 +157,7 @@ The learning curve above shows that our selected best model, the tuned Random Fo
 
 <img width="915" height="685" alt="image" src="https://github.com/user-attachments/assets/b7c89b4c-fcca-4ce7-94cf-eef8ae3818c3" />
 
-Permutation importance provides a global explanation of a model by measuring feature contribution to the overall model. The permutation importance plot above shows that `test_indication` is the most influential feature, followed by `age_60_and_above` and `fever`,
+Both feature importance and permutation importance provide a global explanation of a model by measuring feature contribution to the overall model. The permutation importance plot above shows that `test_indication` is the most influential feature, followed by `age_60_and_above` and `fever`,
 
 
 **Local Interpretable Model-agnostic Explanations (LIME) - Local explanation**
