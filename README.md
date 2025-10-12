@@ -52,6 +52,23 @@ Target:
 * 0 : Patient tested negative for COVID-19
 * 1 : Patient tested positive for COVID-19
 
+Error Types:
+
+* Type I Error (False Positive) – The model predicts a patient as COVID-19 positive when they are not.
+  * Impact: Leads to unnecessary testing and resource usage but poses minimal health risk.
+
+* Type II Error (False Negative) – The model predicts a patient as negative when they are actually infected.
+  * Impact: Poses serious health and safety risks since undetected infected individuals may deteriorate and/or spread the virus further.
+ 
+Given these implications, Recall is prioritized as the main performance metric because it measures how effectively the model captures all actual positive cases.
+
+The recall formula is:
+
+
+> **Recall** = True Positive / True Positive + False Negative
+
+
+A higher recall value indicates the model is better at identifying COVID-19-positive patients, reducing the risk of missed infections. To complement recall, the Precision-Recall (PR) Curve is also analyzed to evaluate how well the model balances the trade-off between capturing true positives and avoiding false alarms, especially under class imbalance conditions.
 
 
 ### **Data Understanding**
@@ -124,7 +141,7 @@ We selected the top 3 models (XGBoost, LGBM, and Random Forest) and conducted hy
 
 While XGBoost maximizes recall (catching most positive cases), it sacrifices precision, resulting in more false positives. The LGBM is slightly better than XGBoost with a better balance of recall and precision. In contrast, Random Forest offers the most stable and balanced performance across all metrics, making it the most reliable model for prediction.
 
-**Recommended final model:** Random Forest - This model demonstrated the best trade-off between recall, precision, and AUC metrics in comparison to other models.
+**Recommended final model:** Random Forest, as this model demonstrated the best trade-off between recall, precision, and AUC metrics in comparison to other models.
 
 ### **Model evaluation**
 
@@ -132,7 +149,7 @@ While XGBoost maximizes recall (catching most positive cases), it sacrifices pre
 
 <img width="1082" height="488" alt="image" src="https://github.com/user-attachments/assets/96abaa56-9965-4250-889c-10e1afb3e7a3" />
 
-
+The learning curve above shows that our selected best model, the tuned Random Forest, achieves stable performance as training data increases. Both training and validation recall scores converge around 0.80–0.81, indicating good generalization and minimal overfitting.
 
 <img width="1477" height="718" alt="image" src="https://github.com/user-attachments/assets/9897ca68-e162-4ac3-bc24-9530ba25aa00" />
 
@@ -140,13 +157,16 @@ While XGBoost maximizes recall (catching most positive cases), it sacrifices pre
 
 <img width="915" height="685" alt="image" src="https://github.com/user-attachments/assets/b7c89b4c-fcca-4ce7-94cf-eef8ae3818c3" />
 
+Permutation importance provides a global explanation of a model by measuring feature contribution to the overall model. The permutation importance plot above shows that `test_indication` is the most influential feature, followed by `age_60_and_above` and `fever`,
+
+
 **Local Interpretable Model-agnostic Explanations (LIME) - Local explanation**
 
 <img width="1611" height="588" alt="image" src="https://github.com/user-attachments/assets/267d3c52-ccf0-4caa-83cb-68350d0e75ba" />
 
 <img width="1281" height="638" alt="image" src="https://github.com/user-attachments/assets/76c2ec4a-ec6d-4927-aa80-664c17e53a3a" />
 
-The model predicted this patient as COVID-19 positive (79% probability). Although the patient does not show several common symptoms (no cough, sore throat, shortness of breath, or headache), the model strongly focuses on exposure risk/history. Specifically, the feature “test_indication = Contact with confirmed case” and the presence of fever are the most influential factors pushing the prediction toward positive. These two features outweighed the negative effects from the absence of other symptoms. In simple terms, the model reasoned: “Even though this person doesn’t look very sick, they were in contact with a confirmed case and have a fever, so the risk of infection remains high.”
+LIME model predicted the patient (index 230676) as COVID-19 positive (79% probability). Although the patient does not show several common symptoms (no cough, sore throat, shortness of breath, or headache), the model strongly focuses on exposure risk/history. Specifically, the feature “test_indication = Contact with confirmed case” and the presence of fever are the most influential factors pushing the prediction toward positive. These two features outweighed the negative effects from the absence of other symptoms. 
 
 ### **Conclusion**
 
