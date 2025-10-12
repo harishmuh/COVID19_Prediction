@@ -1,6 +1,9 @@
-![COVID19](https://kominfosandi.kamparkab.go.id/wp-content/uploads/2021/08/banner.png)
+<p align="center">
+  <img src="https://kominfosandi.kamparkab.go.id/wp-content/uploads/2021/08/banner.png" alt="COVID19" width="600">
+</p>
 
-# **From Symptoms to Prediction: Machine Learning for COVID-19 Diagnosis**
+
+# **Machine Learning for COVID-19 Positivity Prediction**
 
 ### **Project Background & Context**
 The COVID-19 pandemic has underscored the urgent need for efficient methods to identify potentially infected individuals. Although PCR and antigen tests remain the gold standards for diagnosis, these procedures are often resource-intensive, time-consuming, and not always accessible—particularly in remote or resource-limited regions.
