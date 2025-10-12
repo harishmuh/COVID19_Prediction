@@ -81,6 +81,11 @@ Target:
 
 <img width="1690" height="505" alt="image" src="https://github.com/user-attachments/assets/9ae106c2-959e-43b3-8816-d501ad529cb6" />
 
+**Target distribution**
+
+<img width="613" height="646" alt="image" src="https://github.com/user-attachments/assets/05f553ff-038e-40a3-bb25-6b2973bcb735" />
+
+
 
 ### **Modelling**
 
