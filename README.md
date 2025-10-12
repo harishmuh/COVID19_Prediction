@@ -1,3 +1,5 @@
+![COVID19](https://kominfosandi.kamparkab.go.id/wp-content/uploads/2021/08/banner.png)
+
 # **From Symptoms to Prediction: Machine Learning for COVID-19 Diagnosis**
 
 ### **Project Background & Context**
@@ -92,9 +94,25 @@ Based on the result above, we can provide general observations:
 
 We selected the top 3 models (XGBoost, LGBM, and Random Forest) and conducted hyperparameter tuning to further improve the model performance.
 
-<img width="1237" height="463" alt="image" src="https://github.com/user-attachments/assets/6a446682-50cd-4e15-bd8f-168e8676c729" />
+**Recall comparison**
 
-<img width="1792" height="405" alt="image" src="https://github.com/user-attachments/assets/5ce6c586-3c4b-4e69-a998-7366f66015d5" />
+| Model          | Training Set | Testing Set |
+|----------------|-----------------------------|-----------------------------|
+| **XGBoost (Before Tuning)**   | 0.799 | 0.789 |
+| **XGBoost (After Tuning)**    | 0.821 | 0.813 |
+| **LightGBM (Before Tuning)**  | 0.797 | 0.789 |
+| **LightGBM (After Tuning)**   | 0.818 | 0.804 |
+| **Random Forest (Before Tuning)** | 0.795 | 0.786 |
+| **Random Forest (After Tuning)**  | 0.800 | 0.789 |
+
+
+**Overall Model Performance After Tuning**
+
+| Model         | Recall (Test) | Precision (Class 1) | ROC-AUC | PR-AUC | Key Insight |
+|----------------|---------------|----------------------|----------|---------|--------------|
+| **XGBoost**    | 0.813 | 0.29 | 0.896 | 0.629 | Highest recall; good at detecting positives but many false positives (low precision). |
+| **LightGBM**   | 0.804 | 0.32 | 0.901 | 0.660 | Better balance between recall and precision; good generalization. |
+| **Random Forest** | 0.789 | 0.36 | 0.902 | 0.671 | Most robust model overall. Best AUC and precision–recall balance. |
 
 While XGBoost maximizes recall (catching most positive cases), it sacrifices precision, resulting in more false positives. The LGBM is slightly better than XGBoost with a better balance of recall and precision. In contrast, Random Forest offers the most stable and balanced performance across all metrics, making it the most reliable model for prediction.
 
