@@ -100,7 +100,8 @@ A higher recall value indicates the model is better at identifying COVID-19-posi
 
 **Target distribution**
 
-<img width="613" height="646" alt="image" src="https://github.com/user-attachments/assets/05f553ff-038e-40a3-bb25-6b2973bcb735" />
+<img width="563" height="580" alt="image" src="https://github.com/user-attachments/assets/9e025f5d-9221-470c-aaaa-86e314d51cda" />
+
 
 
 
